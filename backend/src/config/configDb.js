@@ -5,7 +5,7 @@ import { DATABASE, DB_USERNAME, HOST, PASSWORD } from "./configEnv.js";
 // Configuración de la conexión a la base de datos
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: `pgsqltrans.face.ubiobio.cl`,
+    host: `${HOST}`,
     port: 5432,
     username: `${DB_USERNAME}`,
     password: `${PASSWORD}`,
