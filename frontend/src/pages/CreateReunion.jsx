@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CreateReunionS } from "@services/createReunion.service.js";
+import Swal from "sweetalert2";
 
 const CreateReunion = () => {
     const [ReunionData, setReunionData] = useState({
@@ -33,7 +34,7 @@ const CreateReunion = () => {
             });
         }catch (error){
             console.error(error)
-            alert('Error al crear la reunión');
+            Swal.fire('Error', 'No se pudo cerrar la reunión. Inténtalo de nuevo.', 'error');
         }
     };
 
