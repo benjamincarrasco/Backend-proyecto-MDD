@@ -11,6 +11,8 @@ import Profile from '@pages/Profile'
 import ProtectedRoute from '@components/ProtectedRoute'
 import Voting from "@pages/voting"
 import CreateVoting from "@pages/CreateVoting";
+import Reuniones from "@pages/Reunion";
+import CreateReunion from "@pages/CreateReunion";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +47,19 @@ const router = createBrowserRouter([
             <CreateVoting />
           </ProtectedRoute>
         )
-      }
+      },
+      {
+        path: "/reuniones",
+        element: <Reuniones />,
+      },
+      {
+        path: "/createreunion",
+        element: (
+          <ProtectedRoute allowedRoles={["administrador"]}>
+            <CreateReunion />
+          </ProtectedRoute>
+        )
+      },
     ],
   },
   {

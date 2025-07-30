@@ -10,7 +10,7 @@ export const ReunionEntity = new EntitySchema({
             primary: true,
             generated: true,
         },
-        tittle: {
+        title: {
             type: "varchar",
             length: 255,
             nullable: false,

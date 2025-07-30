@@ -19,12 +19,12 @@ export async function createReunion(req, res) {
             });
         }
 
-        const {tittle, platform, description, startDate} = req.body;
+        const {title, platform, description, startDate} = req.body;
         const reunionRepository = AppDataSource.getRepository(ReunionEntity);
 
         //crear reunion
         const newReunion = reunionRepository.create({
-            tittle,
+            title,
             platform,
             description,
             startDate: new Date(startDate),
@@ -32,6 +32,9 @@ export async function createReunion(req, res) {
         });
 
         await reunionRepository.save(newReunion); //Se guarda la reunion creada
+
+        
+
 
         res.status(201).json({
             message: "Reunión creada exitosamente",
@@ -50,6 +53,7 @@ export async function getAllReuniones(req, res) {
     try {
         const reunionRepository = AppDataSource.getRepository(ReunionEntity);
         const reuniones = await reunionRepository.find({
+            where: {isClosed: false},
             order: { createdAt: "DESC"},
         });
         res.status(200).json({
