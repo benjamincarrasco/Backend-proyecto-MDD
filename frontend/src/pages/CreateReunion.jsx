@@ -25,16 +25,18 @@ const CreateReunion = () => {
 
         try {
             await CreateReunionS(ReunionData);
-            alert('Reunión creada exitosamente');
+            Swal.fire('Reunion creada', 'Reunion creada exitosamente.','success');
             setReunionData({
                 title: '',
                 platform: '',
                 description: '',
                 startDate: '',
             });
+            
         }catch (error){
             console.error(error)
             Swal.fire('Error', 'No se pudo cerrar la reunión. Inténtalo de nuevo.', 'error');
+            
         }
     };
 
