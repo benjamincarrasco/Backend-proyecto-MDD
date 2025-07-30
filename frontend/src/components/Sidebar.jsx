@@ -1,10 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "@services/auth.service.js";
-<<<<<<< HEAD
-import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus, FaMicrophone } from "react-icons/fa";
-=======
-import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus, FaFileAlt } from "react-icons/fa"; // Importa FaFileAlt
->>>>>>> 6d4ab2e8531092feea3f282e082f9bdd05d1dc4d
+import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus, FaMicrophone, FaFileAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import "@styles/Sidebar.css";
 
@@ -58,8 +54,7 @@ const Sidebar = () => {
                   </NavLink>
                 </li>
               )}
-<<<<<<< HEAD
-
+              
               <li>
                 <NavLink to="/reuniones">
                   <FaMicrophone className="icon"/> Reuniones
@@ -73,7 +68,6 @@ const Sidebar = () => {
                 </li>
               )}
 
-=======
               {userRole === "administrador" && ( // Nuevo enlace para administradores
                 <li>
                   <NavLink to="/actas-admin">
@@ -81,7 +75,6 @@ const Sidebar = () => {
                   </NavLink>
                 </li>
               )}
->>>>>>> 6d4ab2e8531092feea3f282e082f9bdd05d1dc4d
           <li style={{ height: "70%" }}/>
           <li className="logout">
             <NavLink to="/login" onClick={logoutSubmit}>
