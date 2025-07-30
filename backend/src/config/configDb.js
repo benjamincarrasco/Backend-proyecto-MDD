@@ -1,5 +1,7 @@
 "use strict";
 import { DataSource } from "typeorm"
+import { ActaEntity } from "../entity/acta.entity.js";
+import { ActaSentEntity } from "../entity/actaSent.entity.js";
 import { DATABASE, DB_USERNAME, HOST, PASSWORD } from "./configEnv.js";
 
 // Configuración de la conexión a la base de datos
