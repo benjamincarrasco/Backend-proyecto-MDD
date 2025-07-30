@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "@services/auth.service.js";
-import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus } from "react-icons/fa";
+import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus, FaFileAlt } from "react-icons/fa"; // Importa FaFileAlt
 import { CgProfile } from "react-icons/cg";
 import "@styles/Sidebar.css";
 
@@ -51,6 +51,13 @@ const Sidebar = () => {
                 <li>
                   <NavLink to="/createvoting">
                     <FaPlus className="icon"/> Crear
+                  </NavLink>
+                </li>
+              )}
+              {userRole === "administrador" && ( // Nuevo enlace para administradores
+                <li>
+                  <NavLink to="/actas-admin">
+                    <FaFileAlt className="icon"/> Administrar Actas
                   </NavLink>
                 </li>
               )}

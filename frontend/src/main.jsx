@@ -11,6 +11,8 @@ import Profile from '@pages/Profile'
 import ProtectedRoute from '@components/ProtectedRoute'
 import Voting from "@pages/voting"
 import CreateVoting from "@pages/CreateVoting";
+// ... (imports existentes)
+import ActasAdmin from '@pages/ActasAdmin'; // Importa la nueva página
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
             <CreateVoting />
           </ProtectedRoute>
         )
+      },
+      {
+        path: "/actas-admin", // Nueva ruta para la administración de actas
+        element: (
+          <ProtectedRoute allowedRoles={["administrador"]}> {/* Solo administradores pueden acceder */}
+            <ActasAdmin />
+          </ProtectedRoute>
+        ),
       }
     ],
   },
