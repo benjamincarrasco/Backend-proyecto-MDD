@@ -18,6 +18,15 @@ export async function StartReunion(reunionid) {
     }
 }
 
+export async function CloseReunion(reunionid) {
+    try {
+        const response = await axios.patch(`/reuniones/${reunionid}/close`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al cerrar reunion:", error);
+    }
+}
+
 export async function DeleteReunion(reunionid) {
     try {
         const response = await axios.delete(`/reuniones/${reunionid}`);
