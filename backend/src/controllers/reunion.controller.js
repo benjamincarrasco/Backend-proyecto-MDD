@@ -53,7 +53,6 @@ export async function getAllReuniones(req, res) {
     try {
         const reunionRepository = AppDataSource.getRepository(ReunionEntity);
         const reuniones = await reunionRepository.find({
-            where: {isClosed: false},
             order: { createdAt: "DESC"},
         });
         res.status(200).json({
