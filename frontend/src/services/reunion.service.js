@@ -6,6 +6,7 @@ export async function GetReunion() {
         return response.data
     } catch (error) {
         console.error("Error al obtener las reuniones");
+        Swal.fire('Error', 'Error al obtener las reuniones. Inténtalo de nuevo.', 'error');
     }
 }
 
@@ -15,6 +16,7 @@ export async function StartReunion(reunionid) {
         return response.data;
     } catch (error) {
         console.error("Error al iniciar reunion:", error);
+        Swal.fire('Error', 'Error al iniciar la reunion. Inténtalo de nuevo.', 'error');
     }
 }
 
@@ -24,6 +26,7 @@ export async function CloseReunion(reunionid) {
         return response.data;
     } catch (error) {
         console.error("Error al cerrar reunion:", error);
+        Swal.fire('Error', 'Error al cerrar la reunion. Inténtalo de nuevo.', 'error');
     }
 }
 
@@ -33,5 +36,6 @@ export async function DeleteReunion(reunionid) {
         return response.data;
     } catch (error) {
         console.error("Error al eliminar reunion:", error);
+        Swal.fire('Error', 'Error al eliminar la reunion. Inténtalo de nuevo.', 'error');
     }
 }
