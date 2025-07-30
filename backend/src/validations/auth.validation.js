@@ -3,7 +3,7 @@ import Joi from "joi";
 
 // Función para validar que el correo electrónico termine en @gmail.com o @gmail.cl
 const domainEmailValidator = (value, helpers) => {
-  if (!value.endsWith("@gmail.com") && !value.endsWith("@alumnos.ubiobio.cl")) {
+  if (!value.endsWith("@alumnos.ubiobio.cl")) {
     return helpers.message(
       "El correo electrónico debe finalizar en @alumnos.ubiobio.cl."
     );
