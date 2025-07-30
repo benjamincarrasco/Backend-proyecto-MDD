@@ -9,7 +9,7 @@ export async function getActas() {
         return response.data.data;
     } catch (error) {
         console.error("Error al obtener actas:", error);
-        throw error; // Propagar el error
+        throw error; 
     }
 }
 
@@ -22,7 +22,7 @@ export async function sendActaByEmail(actaId) {
         return response.data;
     } catch (error) {
         console.error("Error al enviar acta por correo:", error);
-        throw error; // Propagar el error
+        throw error; 
     }
 }
 
