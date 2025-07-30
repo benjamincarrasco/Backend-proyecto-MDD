@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CreateVotingS } from "@services/createvoting.service.js";
-
+import Swal from "sweetalert2";
 const CreateVoting = () => {
     const [VotingData, setVotingData] = useState({
         title: '',
@@ -23,12 +23,13 @@ const CreateVoting = () => {
         
         try {
             await CreateVotingS(VotingData);
-            alert('Votación creada!');
+            Swal.fire('Votación creada!');
             // Limpiar formulario
             setVotingData({ title: '', description: '', endDate: '' });
         } catch (error) {
-            console.error(error)
-            alert('Error al crear votación');
+            console.error("Error:", error);
+            Swal.fire('Error al crear votación');
+            throw error;
         }
     };
 

@@ -8,3 +8,15 @@ export async function GetVoting() {
         console.error("Error al obtener las votaciones:", error);
     }
 }
+
+
+export async function sendVote(votingId, opcion) {
+    try {
+        const response = await axios.post(`/voting/${votingId}/vote`, {opcion : opcion});
+        return response.data;
+
+    } catch (error) {
+        console.error("Error al emitir voto:", error);
+        
+    }
+}
