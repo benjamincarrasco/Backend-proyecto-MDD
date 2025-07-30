@@ -36,7 +36,7 @@ const CreateReunion = () => {
         }catch (error){
             console.error(error)
             Swal.fire('Error', 'No se pudo cerrar la reunión. Inténtalo de nuevo.', 'error');
-            
+            throw error
         }
     };
 

@@ -8,6 +8,6 @@ export async function CreateReunionS(ReunionData) {
     }catch (error) {
         console.error("Error al crear la reunion:", error);
         Swal.fire('Error', 'Error al crear la reunion. Inténtalo de nuevo.', 'error');
-        
+        throw error
     }
 }
