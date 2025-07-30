@@ -1,6 +1,8 @@
 import '@styles/reunion.css'
 import { useGetReuniones } from '@hooks/reuniones/useGetReuniones.jsx';
 import { useEffect } from 'react';
+import { DeleteReunion, StartReunion } from '../services/reunion.service.js';
+import Swal from 'sweetalert2';
 
 const Reuniones = () => {
     const { Reunion, fetchReuniones} = useGetReuniones();
@@ -9,6 +11,26 @@ const Reuniones = () => {
         fetchReuniones();
     }, [])
 
+
+    const handleStartReunion = async (reunionid) => {
+        try {
+            await StartReunion(reunionid);
+            Swal.fire('Reunion iniciada', 'La reunión se ha iniciado correctamente.', 'success');
+        } catch (error) {
+            console.error("Error al iniciar la reunion:", error);
+            Swal.fire('Error', 'No se pudo iniciar la reunión. Inténtalo de nuevo.', 'error');
+        }
+    };
+
+    const handleDeleteReunion = async (reunionid) => {
+        try {
+            await DeleteReunion(reunionid);
+            Swal.fire('Reunion eliminada', 'La reunión se ha eliminado correctamente.', 'success');
+        } catch (error) {
+            console.error("Error al iniciar la reunion:", error);
+            Swal.fire('Error', 'No se pudo eliminar la reunión. Inténtalo de nuevo.', 'error');
+        }
+    };
 
     const user = JSON.parse(sessionStorage.getItem("usuario")) || "";
     const userRole = user?.role;
@@ -24,8 +46,13 @@ const Reuniones = () => {
                         <th>Plataforma</th>
                         <th>Descripcion</th>
                         <th>Fecha inicio</th>
-                        <th>Iniciada</th>  
-                        <th>Iniciar</th>
+                        <th>Iniciada</th> 
+                        {userRole === "administrador" && <th> 
+                            <th>Iniciar</th> 
+                            <th>Eliminar</th>
+                        </th>} 
+                        
+
                         
                     </tr>
                 </thead>
@@ -39,16 +66,21 @@ const Reuniones = () => {
                                 <td>{Reunion.description}</td>
                                 <td>{Reunion.startDate}</td>
                                 <td>{Reunion.isActive ? "Sí" : "No" }</td>
-                                
+                                {userRole === "administrador" && <td>
                                 <td>
-                                    {userRole === "administrador" && (<button className="Iniciar">Iniciar</button>)}
+                                    <button className="Iniciar" onClick={() => handleStartReunion(Reunion.id)} >Iniciar</button>
                                 </td>
-                                
+
+                                <td>
+                                    <button className="Eliminar" onClick={() => handleDeleteReunion(Reunion.id)} >Eliminar</button>
+                                </td>
+                                </td>
+                                }
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="7">No hay reuniones disponibles</td>
+                            <td colSpan="4">No hay reuniones disponibles</td>
                         </tr>
                     ) }
                 </tbody>
