@@ -138,3 +138,18 @@ td.text-right {
   background-color: #388e3c;
 }
 
+.votings-table button.si{
+  background-color: #4caf50;
+}
+
+.votings-table button.no{
+  background-color: #f44336;
+}
+
+.votings-table button.si:hover {
+  background-color: #45a049;
+}
+
+.votings-table button.no:hover {
+  background-color: #e53935;
+}
