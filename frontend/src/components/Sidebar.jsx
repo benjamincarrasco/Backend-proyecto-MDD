@@ -3,6 +3,7 @@ import { logout } from "@services/auth.service.js";
 import { FaHome, FaUsers, FaSignOutAlt, FaVoteYea, FaPlus, FaMicrophone, FaFileAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import "@styles/Sidebar.css";
+import LogoUBBblanco from "@assets/LogoUBBblanco.png";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <h2>Metodología de Desarrollo</h2>
+      <img src={LogoUBBblanco} className="sidebar-logo" />
+      <h2>Centro de estudiantes</h2>
       <nav>
         <ul>
           <li>
